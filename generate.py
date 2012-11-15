@@ -48,7 +48,7 @@ pdfmetrics.registerFont(TTFont('UbuntuBI', 'Ubuntu-BI.ttf'))
 
 
 def print_notes_pdf(num_pages=1):
-    banknote_series = base64.b64encode(os.urandom(8))
+    banknote_series = base64.b64encode(os.urandom(8)).replace("/", "-")
     c = canvas.Canvas("storagesheets_"+banknote_series+".pdf", pagesize=A4)
     for page_num in range(0, num_pages):
         c.setFont("UbuntuM", 6)
@@ -148,7 +148,7 @@ def print_notes_pdf(num_pages=1):
 
 
 def print_banknotes_pdf(num_pages=1):
-    banknote_series = base64.b64encode(os.urandom(8))
+    banknote_series = base64.b64encode(os.urandom(8)).replace("/", "-")
     c = canvas.Canvas("banknotes_"+banknote_series+".pdf", pagesize=A4)
     for page_num in range(0, num_pages):
         c.setFont("UbuntuM", 6)
