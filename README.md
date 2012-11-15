@@ -4,9 +4,15 @@ Print cost-effective bitcoin banknotes!
 
 This script can generate "storage sheets" and "banknotes".
 
+See the difference: http://imgur.com/a/Umuaj
+
 ## Usage & Installation
 
-Requires reportlab PIL, qrcode and bitcoin vanitygen
+Bitcoin vanitygen https://github.com/samr7/vanitygen
+
++ the python packages listed in requirements.txt
+
+    pip install -r requirements.txt
 
 ## Examples
 
@@ -22,9 +28,7 @@ Foldable sheet with all bitcoin addresses starting with "1ZZ"
 
     python generate.py -b -s 1ZZ
 
-## Licence and authors
-
-Licence is Public domain - modify and share.
+## Authors
 
 This script is from the authors of [LocalBitcoins.com](https://localbitcoins.com) and [EasyWallet.org](https://easywallet.org)
 
