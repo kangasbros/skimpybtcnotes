@@ -38,7 +38,7 @@ parser.add_option("-p", "--vanitygen_path", dest="vanitygen_path",
                   help="vanitygen executable path", type="string", default="vanitygen")
 parser.add_option("-s", "--vanitygen_start", dest="vanitygen_start",
                   help="vanitygen bitcoin address pattern", type="string", default="1")
-parser.add_option("-b", "--bank_notes",help="print foldable banknotes instead of storage sheets", 
+parser.add_option("-b", "--bank_notes", help="print foldable banknotes instead of storage sheets", 
                       action="store_true", dest="bank_notes", default=False)
 
 (options, args) = parser.parse_args()
@@ -46,11 +46,12 @@ parser.add_option("-b", "--bank_notes",help="print foldable banknotes instead of
 pdfmetrics.registerFont(TTFont('UbuntuM', 'Ubuntu-M.ttf'))
 pdfmetrics.registerFont(TTFont('UbuntuBI', 'Ubuntu-BI.ttf'))
 
-def print_notes_pdf(num_pages = 1):
+
+def print_notes_pdf(num_pages=1):
     banknote_series = base64.b64encode(os.urandom(8))
-    c = canvas.Canvas("banknotes.pdf", pagesize=A4)
-    c.setFont("UbuntuM", 6)
+    c = canvas.Canvas("storagesheets_"+banknote_series+".pdf", pagesize=A4)
     for page_num in range(0, num_pages):
+        c.setFont("UbuntuM", 6)
         c.drawString(0.5*cm, (29.7-0.7)*cm, "Series: "+banknote_series+" Page: "+str(page_num))
         addresses = []
         for i in range(0, (3*9)):
@@ -145,9 +146,10 @@ def print_notes_pdf(num_pages = 1):
     c.save()
     # return response
 
-def print_banknotes_pdf(num_pages = 1):
+
+def print_banknotes_pdf(num_pages=1):
     banknote_series = base64.b64encode(os.urandom(8))
-    c = canvas.Canvas("banknotes.pdf", pagesize=A4)
+    c = canvas.Canvas("banknotes_"+banknote_series+".pdf", pagesize=A4)
     for page_num in range(0, num_pages):
         c.setFont("UbuntuM", 6)
         c.drawString(0.5*cm, (29.7-0.7)*cm, "Series: "+banknote_series+" Page: "+str(page_num))
