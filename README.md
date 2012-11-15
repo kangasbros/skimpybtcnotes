@@ -10,7 +10,7 @@ See the difference: http://imgur.com/a/Umuaj
 
 Bitcoin vanitygen https://github.com/samr7/vanitygen
 
-+ the python packages listed in requirements.txt
+And the python packages listed in requirements.txt
 
     pip install -r requirements.txt
 
